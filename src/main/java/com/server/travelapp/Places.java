@@ -16,15 +16,13 @@ import javax.persistence.*;
 @Table
 class Places {
 
-    @Column
-
-    private String placeName;
-
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
+    private String placeName;
 
     @Override
     public String toString() {
