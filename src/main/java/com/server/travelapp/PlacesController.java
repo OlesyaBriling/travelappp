@@ -15,13 +15,10 @@ public class PlacesController {
 
     private final PlacesRepository repository;
 
-//    private final PlacesModelAssembler assembler;
-
 
 
     PlacesController(PlacesRepository repository) {
         this.repository = repository;
-//        this.assembler = assembler;
     }
 
     @GetMapping("/places")
@@ -40,10 +37,6 @@ public class PlacesController {
 
         return new ResponseEntity(places, HttpStatus.OK);
     }
-
-//    private PlacesController methodOn(Class<PlacesController> placesControllerClass) {
-//        return null;
-//    }
 
 
 }
