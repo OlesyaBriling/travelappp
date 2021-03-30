@@ -17,8 +17,8 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(PlacesRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Places("Петергоф", 1L)));
-            log.info("Preloading " + repository.save(new Places("Мост", 2L)));
+            log.info("Preloading " + repository.save(new Places(1L, "Петергоф", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00"  )));
+            log.info("Preloading " + repository.save(new Places(2L, "Мост", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00" )));
         };
     }
 

@@ -24,11 +24,39 @@ class Places {
     @Column
     private String placeName;
 
+    @Column
+    private String country;
+
+    @Column
+    private String city;
+
+    @Column
+    private String street;
+
+    @Column
+    private Integer building;
+
+    @Column
+    private String startwork;
+
+    @Column
+    private String endwork;
+
+
     @Override
     public String toString() {
-        return "Places{" +
-                "placeName='" + placeName + '\'' +
-                ", id=" + id +
+        return "Places { " +
+                "id=" + id +
+                ", placeName='" + placeName + '\'' +
+                "Address {" +
+                "  country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", building=" + building +
+                "}" +
+                "workingTime {" +
+                "  startwork='" + startwork + '\'' +
+                ", endwork='" + endwork + '\'' + "}" +
                 '}';
     }
 }
