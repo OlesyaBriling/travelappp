@@ -27,7 +27,7 @@ public class LoadDatabase {
     }
 
     @Bean
-    CommandLineRunner initDatabase(RestaurantsRepository repository) {
+    CommandLineRunner initDatabase1(RestaurantsRepository repository) {
 
         return args -> {
             log.info("Preloading" + repository.save(new Restaurants(1L, "cafe", "Volga", "Russia", "Saint-Pt.", "Moskovskaya", 3, "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));

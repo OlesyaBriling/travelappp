@@ -19,14 +19,14 @@ public class RestaurantsController {
         this.repository = repository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/restaurants")
     public ResponseEntity all() {
         List<Restaurants> restaurants = repository.findAll();
 
         return new ResponseEntity(restaurants, HttpStatus.OK);
     }
 
-    @GetMapping("/")
+    @GetMapping("/restaurants/{id}")
     public ResponseEntity one(@PathVariable Long id) {
         Restaurants restaurants = repository.findById(id).orElseThrow(() -> new RestaurantsNotFoundException(id));
 
