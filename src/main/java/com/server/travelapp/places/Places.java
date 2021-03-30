@@ -1,4 +1,4 @@
-package com.server.travelapp;
+package com.server.travelapp.places;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table
-class Places {
+public class Places {
 
     @Id
     @Column
@@ -36,11 +36,19 @@ class Places {
     @Column
     private Integer building;
 
-    @Column
-    private String startwork;
 
     @Column
-    private String endwork;
+    private String weekdays_startwork;
+
+    @Column
+    private String weekdays_endwork;
+
+    @Column
+    private String weekends_startwork;
+
+    @Column
+    private String weekends_endwork;
+
 
 
     @Override
@@ -55,8 +63,8 @@ class Places {
                 ", building=" + building +
                 "}" +
                 "workingTime {" +
-                "  startwork='" + startwork + '\'' +
-                ", endwork='" + endwork + '\'' + "}" +
+                "  startwork='" + weekdays_startwork + '\'' +
+                ", endwork='" + weekdays_endwork + '\'' + "}" +
                 '}';
     }
 }

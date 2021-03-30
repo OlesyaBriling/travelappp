@@ -1,6 +1,10 @@
 package com.server.travelapp;
 
 
+import com.server.travelapp.places.Places;
+import com.server.travelapp.places.PlacesRepository;
+import com.server.travelapp.restaurants.Restaurants;
+import com.server.travelapp.restaurants.RestaurantsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -17,9 +21,20 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(PlacesRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Places(1L, "Петергоф", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00"  )));
-            log.info("Preloading " + repository.save(new Places(2L, "Мост", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00" )));
+            log.info("Preloading " + repository.save(new Places(1L, "Петергоф", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00", "10:00", "23:00" )));
+            log.info("Preloading " + repository.save(new Places(2L, "Мост", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00", "10:00", "23:00")));
         };
     }
+
+    @Bean
+    CommandLineRunner initDatabase(RestaurantsRepository repository) {
+
+        return args -> {
+            log.info("Preloading" + repository.save(new Restaurants(1L, "cafe", "Volga", "Russia", "Saint-Pt.", "Moskovskaya", 3, "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(2L, "cafe", "Volga", "Russia", "Saint-Pt.", "Moskovskaya", 3, "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+        };
+
+    }
+
 
 }

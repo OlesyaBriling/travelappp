@@ -1,4 +1,4 @@
-package com.server.travelapp;
+package com.server.travelapp.places;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

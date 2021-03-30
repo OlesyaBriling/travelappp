@@ -1,4 +1,4 @@
-package com.server.travelapp;
+package com.server.travelapp.places;
 
 public class PlacesNotFoundException extends RuntimeException {
 
