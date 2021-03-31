@@ -1,6 +1,8 @@
 package com.server.travelapp;
 
 
+import com.server.travelapp.accounts.Accounts;
+import com.server.travelapp.accounts.AccountsRepository;
 import com.server.travelapp.hotels.Hotels;
 import com.server.travelapp.hotels.HotelsRepository;
 import com.server.travelapp.places.Places;
@@ -38,13 +40,21 @@ public class LoadDatabase {
 
     }
 
-//    @Bean
-//    CommandLineRunner initDatabase2(HotelsRepository repository) {
-//        return args -> {
-//            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger")));
-//            log.info("Preloading" + repository.save(new Hotels(2L, "Seliger")));
-//        };
-//    }
+    @Bean
+    CommandLineRunner initDatabase2(HotelsRepository repository) {
+        return args -> {
+            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger")));
+            log.info("Preloading" + repository.save(new Hotels(2L, "Seliger")));
+        };
+    }
+
+    @Bean
+    CommandLineRunner initDatabase3(AccountsRepository repository) {
+        return args -> {
+            log.info("Preloading" + repository.save(new Accounts(1L, "olesabrilng@gmail.com", "124536fg", "OlesyaBriling", "09/01/2002", "Tver")));
+            log.info("Preloading" + repository.save(new Accounts(2L, "artem@gmail.com", "896536hu", "Artem01", "23/07/2001", "Tver")));
+        };
+    }
 
 
 }

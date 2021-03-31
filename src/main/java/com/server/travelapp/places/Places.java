@@ -49,8 +49,6 @@ public class Places {
     @Column
     private String weekends_endwork;
 
-
-
     @Override
     public String toString() {
         return "Places { " +

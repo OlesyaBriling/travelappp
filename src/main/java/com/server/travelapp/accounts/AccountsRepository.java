@@ -1,4 +1,7 @@
 package com.server.travelapp.accounts;
 
-public class AccountsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AccountsRepository extends JpaRepository<Accounts, Long> {
+
 }

@@ -27,33 +27,31 @@ public class Hotels {
     @Column
     private String hotelName;
 
-    @Column
-    private String country;
+//    @Column
+//    private String country;
+//
+//    @Column
+//    private String city;
+//
+//    @Column
+//    private String street;
+//
+//    @Column
+//    private Integer building;
 
-    @Column
-    private String city;
-
-    @Column
-    private String street;
-
-    @Column
-    private Integer building;
-
-    @Table
-    public class Rooms {
-
-        @Column
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-
-        @Column
-        private Long idHotel;
-
-        @Column
-        private Integer priceAmount;
-
-    }
+//    @Table
+//    public class Rooms {
+//
+//        @Column
+//        @Id
+//        @GeneratedValue(strategy = GenerationType.IDENTITY)
+//        private Long id;
+//
+//
+//        @Column
+//        private Integer priceAmount;
+//
+//    }
 
 
 
