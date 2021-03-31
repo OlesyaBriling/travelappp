@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -63,6 +65,7 @@ public class Restaurants {
 
     @Column
     private String cuisine;
+
 
     @Override
     public String toString() {

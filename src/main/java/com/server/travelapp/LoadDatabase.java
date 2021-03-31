@@ -1,6 +1,8 @@
 package com.server.travelapp;
 
 
+import com.server.travelapp.hotels.Hotels;
+import com.server.travelapp.hotels.HotelsRepository;
 import com.server.travelapp.places.Places;
 import com.server.travelapp.places.PlacesRepository;
 import com.server.travelapp.restaurants.Restaurants;
@@ -35,6 +37,14 @@ public class LoadDatabase {
         };
 
     }
+
+//    @Bean
+//    CommandLineRunner initDatabase2(HotelsRepository repository) {
+//        return args -> {
+//            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger")));
+//            log.info("Preloading" + repository.save(new Hotels(2L, "Seliger")));
+//        };
+//    }
 
 
 }

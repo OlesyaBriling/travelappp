@@ -1,6 +1,8 @@
 package com.server.travelapp.hotels;
 
-public interface HotelsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface HotelsRepository extends JpaRepository<Hotels, Long> {
 
 
 }

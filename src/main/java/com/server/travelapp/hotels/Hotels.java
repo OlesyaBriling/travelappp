@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.sql.Array;
 
 
 @Data
@@ -16,7 +18,6 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Hotels {
-
 
     @Column
     @Id
@@ -37,6 +38,22 @@ public class Hotels {
 
     @Column
     private Integer building;
+
+    @Table
+    public class Rooms {
+
+        @Column
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+
+        @Column
+        private Long idHotel;
+
+        @Column
+        private Integer priceAmount;
+
+    }
 
 
 
