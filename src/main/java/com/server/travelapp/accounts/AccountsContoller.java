@@ -1,8 +1,6 @@
 package com.server.travelapp.accounts;
 
-import com.server.travelapp.hotels.Hotels;
-import com.server.travelapp.hotels.HotelsNotFoundException;
-import com.server.travelapp.hotels.HotelsRepository;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +10,14 @@ import java.util.List;
 @RestController
 public class AccountsContoller {
 
+
     private final AccountsRepository repository;
 
+    private final AccountService accountService;
 
-
-    AccountsContoller(AccountsRepository repository) {
+    AccountsContoller(AccountsRepository repository, AccountService accountService) {
         this.repository = repository;
+        this.accountService = accountService;
     }
 
     @GetMapping("/accounts")
@@ -39,9 +39,16 @@ public class AccountsContoller {
 
     @PostMapping(path = "/api/register", consumes = "application/json")
     public String addAccount(@RequestBody Accounts account) {
-
-                  return null;
+        accountService.saveOrUpdate(account);
+        return account.getId().toString();
     }
+
+    @DeleteMapping("/account/{id}")
+    public void deleteAccount(@PathVariable Long id) {
+        accountService.delete(id);
+        System.out.println("Вы удалили аккаунт " + accountService.getAccountById(id));
+    }
+
 
 
 }
