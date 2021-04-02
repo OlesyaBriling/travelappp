@@ -9,6 +9,8 @@ import com.server.travelapp.places.Places;
 import com.server.travelapp.places.PlacesRepository;
 import com.server.travelapp.restaurants.Restaurants;
 import com.server.travelapp.restaurants.RestaurantsRepository;
+import com.server.travelapp.restaurants.address.AddressRestaurants;
+import com.server.travelapp.restaurants.address.AddressRestaurantsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -34,8 +36,8 @@ public class LoadDatabase {
     CommandLineRunner initDatabase1(RestaurantsRepository repository) {
 
         return args -> {
-            log.info("Preloading" + repository.save(new Restaurants(1L, "cafe", "Volga", "Russia", "Saint-Pt.", "Moskovskaya", 3, "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
-            log.info("Preloading" + repository.save(new Restaurants(2L, "cafe", "Volga", "Russia", "Saint-Pt.", "Moskovskaya", 3, "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(1L, AddressRestaurants.builder().build() ,"cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(2L, AddressRestaurants.builder().build(),"cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
         };
 
     }
@@ -53,6 +55,14 @@ public class LoadDatabase {
         return args -> {
             log.info("Preloading" + repository.save(new Accounts(1L, "olesabrilng@gmail.com", "124536fg", "OlesyaBriling", "09/01/2002", "Tver")));
             log.info("Preloading" + repository.save(new Accounts(2L, "artem@gmail.com", "896536hu", "Artem01", "23/07/2001", "Tver")));
+        };
+    }
+
+    @Bean
+    CommandLineRunner initDatabase4(AddressRestaurantsRepository repository) {
+        return args -> {
+            log.info("Preloading" + repository.save(new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3)));
+            log.info("Preloading" + repository.save(new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3)));
         };
     }
 
