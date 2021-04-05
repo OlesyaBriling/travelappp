@@ -1,4 +1,5 @@
-package com.server.travelapp.restaurants.address;
+package com.server.travelapp.roots;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -9,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.management.relation.RoleInfoNotFoundException;
 
 @ControllerAdvice
-public class AddressRestaurantsNotFoundAdvice {
+public class RoutesNotFoundAdvice {
 
     @ResponseBody
     @ExceptionHandler(RoleInfoNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String addressRestaurantsNotFoundHandler(RoleInfoNotFoundException ex) {
+    String routeNotFoundHandler(RoleInfoNotFoundException ex) {
         return ex.getMessage();
     }
 

@@ -26,7 +26,7 @@ public class RestaurantsController {
         return new ResponseEntity(restaurants, HttpStatus.OK);
     }
 
-    @GetMapping("/restaurants/{id}")
+    @GetMapping("/restaurant/{id}")
     public ResponseEntity one(@PathVariable Long id) {
         Restaurants restaurants = repository.findById(id).orElseThrow(() -> new RestaurantsNotFoundException(id));
 

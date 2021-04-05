@@ -24,7 +24,7 @@ public class Restaurants {
 
 
   @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "id", referencedColumnName = "address_id")
+  @JoinColumn(name = "id", referencedColumnName = "id")
    private AddressRestaurants addressRestaurant;
 
     private String type;
