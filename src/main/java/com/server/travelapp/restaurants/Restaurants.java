@@ -20,43 +20,31 @@ public class Restaurants {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @OneToOne(mappedBy = "restaurants")
-    private AddressRestaurants addressRestaurant;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id", referencedColumnName = "address_id")
-//    private AddressRestaurants addressRestaurants;
 
-    @Column
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "id", referencedColumnName = "address_id")
+   private AddressRestaurants addressRestaurant;
+
     private String type;
 
-    @Column
     private String NameRestaurants;
 
-    @Column
     private String weekdays_startwork;
 
-    @Column
     private String weekdays_endwork;
 
-    @Column
     private String weekends_startwork;
 
-    @Column
     private String weekends_endwork;
 
-    @Column
     private Integer amount;
 
-    @Column
     private String currency;
 
-    @Column
     private String photo;
 
-    @Column
     private String cuisine;
 
 

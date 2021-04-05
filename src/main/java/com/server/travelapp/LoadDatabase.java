@@ -36,8 +36,8 @@ public class LoadDatabase {
     CommandLineRunner initDatabase1(RestaurantsRepository repository) {
 
         return args -> {
-            log.info("Preloading" + repository.save(new Restaurants(1L, AddressRestaurants.builder().build() ,"cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
-            log.info("Preloading" + repository.save(new Restaurants(2L, AddressRestaurants.builder().build(),"cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(1L ,new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3), "cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(2L, new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3) ,"cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
         };
 
     }
@@ -58,13 +58,13 @@ public class LoadDatabase {
         };
     }
 
-    @Bean
-    CommandLineRunner initDatabase4(AddressRestaurantsRepository repository) {
-        return args -> {
-            log.info("Preloading" + repository.save(new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3)));
-            log.info("Preloading" + repository.save(new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3)));
-        };
-    }
+//    @Bean
+//    CommandLineRunner initDatabase4(AddressRestaurantsRepository repository) {
+//        return args -> {
+//            log.info("Preloading" + repository.save(new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3)));
+//            log.info("Preloading" + repository.save(new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3)));
+//        };
+//    }
 
 
 }

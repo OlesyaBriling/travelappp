@@ -18,23 +18,11 @@ import javax.persistence.*;
 public class AddressRestaurants {
 
     @Id
-    @Column(name = "address_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long address_id;
-
-//    @OneToOne(mappedBy = "address_restaurants")
-//    private Restaurants restaurant;
-
-    @Column
+    private Long id;
     private String country;
-
-    @Column
     private String city;
-
-    @Column
     private String street;
-
-    @Column
     private Integer building;
 
 
