@@ -32,9 +32,9 @@ public class Routes {
 //
 //    private Budget budget;
 
-//    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "routes_id")
-//    private List<Waypoints> waypoints;
+    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "routes_id")
+    private List<Waypoints> waypoints;
 
 
 //    private Movements movements;

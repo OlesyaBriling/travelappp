@@ -20,6 +20,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -74,8 +75,8 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase5(RoutesRepository repository) {
         return args -> {
-            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",   0)));
-            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",   0)));
+            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new ArrayList<Waypoints>(){{add(new Waypoints(1L, "123234"));}},  0)));
+            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21", new ArrayList<Waypoints>(){{add(new Waypoints(1L, "123234"));}}  ,0)));
         };
     }
 
