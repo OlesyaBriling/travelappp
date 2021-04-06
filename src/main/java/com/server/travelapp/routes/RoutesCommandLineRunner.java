@@ -1,8 +1,8 @@
-package com.server.travelapp.roots.waypoints;
+package com.server.travelapp.routes;
 
 import org.springframework.boot.CommandLineRunner;
 
-public class WaypointsCommandLineRunner implements CommandLineRunner {
+public class RoutesCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 

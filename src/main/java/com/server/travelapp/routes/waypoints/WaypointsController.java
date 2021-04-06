@@ -1,6 +1,5 @@
-package com.server.travelapp.roots.waypoints;
+package com.server.travelapp.routes.waypoints;
 
-import com.server.travelapp.restaurants.RestaurantsNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

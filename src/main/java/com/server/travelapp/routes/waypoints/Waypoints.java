@@ -1,8 +1,7 @@
-package com.server.travelapp.roots.waypoints;
+package com.server.travelapp.routes.waypoints;
 
 
-import com.server.travelapp.roots.Routes;
-import jdk.jfr.MemoryAddress;
+import com.server.travelapp.routes.Routes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,13 +21,14 @@ public class Waypoints {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long waypoints_id;
 
-    @ManyToOne
-  // @JoinColumn(name = "routes_id" )
-    private Routes routes;
+//    @ManyToOne
+//    @JoinColumn(name = "routes_id" )
+//    private Routes routes;
 
-//    private Place place;
+//   private Place place;
 //
-//    private ResidenceTime residenceTime;
+   private String residenceTime;
+
 //
 //    private RestaurantsWaypoint restaurantsWaypoint;
 //

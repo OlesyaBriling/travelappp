@@ -1,4 +1,4 @@
-package com.server.travelapp.roots.waypoints;
+package com.server.travelapp.routes.waypoints;
 
 public class WaypointsNotFoundException extends RuntimeException{
 

@@ -1,4 +1,4 @@
-package com.server.travelapp.roots;
+package com.server.travelapp.routes;
 
 
 import org.springframework.http.HttpStatus;

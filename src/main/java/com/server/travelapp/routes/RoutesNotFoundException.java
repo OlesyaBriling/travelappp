@@ -1,6 +1,4 @@
-package com.server.travelapp.roots;
-
-import com.server.travelapp.restaurants.RestaurantsNotFoundException;
+package com.server.travelapp.routes;
 
 public class RoutesNotFoundException extends RuntimeException {
 

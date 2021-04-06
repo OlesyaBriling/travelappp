@@ -1,15 +1,13 @@
-package com.server.travelapp.roots;
+package com.server.travelapp.routes;
 
-import com.server.travelapp.roots.movements.Movements;
-import com.server.travelapp.roots.pointDeparture.PointDeparture;
-import com.server.travelapp.roots.waypoints.Waypoints;
+import com.server.travelapp.routes.waypoints.Waypoints;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -34,8 +32,10 @@ public class Routes {
 //
 //    private Budget budget;
 
-    @OneToMany(mappedBy = "routes", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Waypoints> waypoints = new ArrayList<>();
+//    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "routes_id")
+//    private List<Waypoints> waypoints;
+
 
 //    private Movements movements;
 //

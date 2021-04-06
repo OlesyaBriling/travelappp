@@ -10,19 +10,17 @@ import com.server.travelapp.places.PlacesRepository;
 import com.server.travelapp.restaurants.Restaurants;
 import com.server.travelapp.restaurants.RestaurantsRepository;
 import com.server.travelapp.restaurants.address.AddressRestaurants;
-import com.server.travelapp.restaurants.address.AddressRestaurantsRepository;
-import com.server.travelapp.roots.Routes;
-import com.server.travelapp.roots.RoutesRepository;
-import com.server.travelapp.roots.waypoints.Waypoints;
-import com.server.travelapp.roots.waypoints.WaypointsRepository;
+import com.server.travelapp.routes.Routes;
+import com.server.travelapp.routes.RoutesRepository;
+import com.server.travelapp.routes.waypoints.Waypoints;
+import com.server.travelapp.routes.waypoints.WaypointsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 
 @Configuration
@@ -65,30 +63,29 @@ public class LoadDatabase {
         };
     }
 
-    @Bean
-    CommandLineRunner initDatabase4(AddressRestaurantsRepository repository) {
-        return args -> {
-            log.info("Preloading" + repository.save(new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3)));
-            log.info("Preloading" + repository.save(new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3)));
-        };
-    }
+//    @Bean
+//    CommandLineRunner initDatabase4(AddressRestaurantsRepository repository) {
+//        return args -> {
+//            log.info("Preloading" + repository.save(new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3)));
+//            log.info("Preloading" + repository.save(new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3)));
+//        };
+//    }
 
     @Bean
     CommandLineRunner initDatabase5(RoutesRepository repository) {
         return args -> {
-            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21", new List<Waypoints>() {
-            }, 0)));
-            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",  , 0 )));
+            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",   0)));
+            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",   0)));
         };
     }
 
-//    @Bean
-//    CommandLineRunner initDataBase6(WaypointsRepository repository) {
-//        return args -> {
-//            log.info("Preloading" + repository.save(new Waypoints(1l)));
-//            log.info("Preloading" + repository.save(new Waypoints(2l)));
-//        };
-//    }
+    @Bean
+    CommandLineRunner initDataBase6(WaypointsRepository repository) {
+        return args -> {
+            log.info("Preloading" + repository.save(new Waypoints(1l,  "23")));
+            log.info("Preloading" + repository.save(new Waypoints(2l, "564")));
+        };
+    }
 
 
 
