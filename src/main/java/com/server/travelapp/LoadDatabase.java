@@ -75,18 +75,18 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase5(RoutesRepository repository) {
         return args -> {
-            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new ArrayList<Waypoints>(){{add(new Waypoints(1L, "123234"));}},  0)));
-            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21", new ArrayList<Waypoints>(){{add(new Waypoints(1L, "123234"));}}  ,0)));
+            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new ArrayList<Waypoints>(){{add(new Waypoints(1L, "123234"));}{add(new Waypoints(4L, "454546"));}},  0)));
+            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21", new ArrayList<Waypoints>(){{add(new Waypoints(2L, "123234"));}{add(new Waypoints(3L, "6557678"));}}  ,0)));
         };
     }
 
-    @Bean
-    CommandLineRunner initDataBase6(WaypointsRepository repository) {
-        return args -> {
-            log.info("Preloading" + repository.save(new Waypoints(1l,  "23")));
-            log.info("Preloading" + repository.save(new Waypoints(2l, "564")));
-        };
-    }
+//    @Bean
+//    CommandLineRunner initDataBase6(WaypointsRepository repository) {
+//        return args -> {
+//            log.info("Preloading" + repository.save(new Waypoints(1l,  "23")));
+//            log.info("Preloading" + repository.save(new Waypoints(2l, "564")));
+//        };
+//    }
 
 
 
