@@ -1,7 +1,7 @@
 package com.server.travelapp.routes.waypoints;
 
 
-import com.server.travelapp.routes.Routes;
+import com.server.travelapp.routes.waypoints.pointPlace.PointPlace;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,13 +19,16 @@ public class Waypoints {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long waypoints_id;
+    private Long id;
 
 //    @ManyToOne
 //    @JoinColumn(name = "routes_id" )
 //    private Routes routes;
 
-//   private Place place;
+
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "id", referencedColumnName = "id")
+   private PointPlace pointPlace;
 //
    private String residenceTime;
 
