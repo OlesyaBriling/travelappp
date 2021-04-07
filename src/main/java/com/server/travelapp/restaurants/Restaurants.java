@@ -1,6 +1,7 @@
 package com.server.travelapp.restaurants;
 
 import com.server.travelapp.restaurants.address.AddressRestaurants;
+import com.server.travelapp.restaurants.workingTime.WorkingTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,15 +29,11 @@ public class Restaurants {
 
     private String type;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private WorkingTime workingTime;
+
     private String NameRestaurants;
-
-    private String weekdays_startwork;
-
-    private String weekdays_endwork;
-
-    private String weekends_startwork;
-
-    private String weekends_endwork;
 
     private Integer amount;
 

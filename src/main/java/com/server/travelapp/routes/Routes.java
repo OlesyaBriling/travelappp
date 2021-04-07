@@ -1,5 +1,6 @@
 package com.server.travelapp.routes;
 
+import com.server.travelapp.routes.pointDeparture.PointDeparture;
 import com.server.travelapp.routes.waypoints.Waypoints;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,7 +29,9 @@ public class Routes {
 
     private String ending_date;
 
-//    private PointDeparture point_departure;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private PointDeparture pointDeparture;
 //
 //    private Budget budget;
 

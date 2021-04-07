@@ -1,4 +1,4 @@
-package com.server.travelapp.routes.pointDeparture;
+package com.server.travelapp.restaurants.workingTime.weekends;
 
 
 import lombok.AllArgsConstructor;
@@ -14,15 +14,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Builder
-public class PointDeparture {
+public class WeekendsWorkingTime {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private boolean point;
 
-    private Long code;
+    private String weekends_startwork;
 
-    private String name;
+
+    private String weekends_endwork;
+
 }

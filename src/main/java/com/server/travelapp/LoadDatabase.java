@@ -10,8 +10,12 @@ import com.server.travelapp.places.PlacesRepository;
 import com.server.travelapp.restaurants.Restaurants;
 import com.server.travelapp.restaurants.RestaurantsRepository;
 import com.server.travelapp.restaurants.address.AddressRestaurants;
+import com.server.travelapp.restaurants.workingTime.WorkingTime;
+import com.server.travelapp.restaurants.workingTime.weekdays.WeekdaysWorkingTime;
+import com.server.travelapp.restaurants.workingTime.weekends.WeekendsWorkingTime;
 import com.server.travelapp.routes.Routes;
 import com.server.travelapp.routes.RoutesRepository;
+import com.server.travelapp.routes.pointDeparture.PointDeparture;
 import com.server.travelapp.routes.waypoints.Waypoints;
 import com.server.travelapp.routes.waypoints.amountSpent.AmountSpent;
 import com.server.travelapp.routes.waypoints.pointPlace.PointPlace;
@@ -43,8 +47,8 @@ public class LoadDatabase {
     CommandLineRunner initDatabase1(RestaurantsRepository repository) {
 
         return args -> {
-            log.info("Preloading" + repository.save(new Restaurants(1L ,new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3), "cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
-            log.info("Preloading" + repository.save(new Restaurants(2L, new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3) ,"cafe", "Volga", "8:00", "21:00", "10:00", "00:00", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(1L ,new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3), "cafe", new WorkingTime(1L, new WeekdaysWorkingTime(1L, "8:00", "21:00"), new WeekendsWorkingTime(1L, "10:00", "00:00")) ,"Volga", 500, "RUB", "photo", "italian")));
+            log.info("Preloading" + repository.save(new Restaurants(2L, new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3) ,"cafe", new WorkingTime(1L, new WeekdaysWorkingTime(1L, "8:00", "21:00"), new WeekendsWorkingTime(1L, "10:00", "00:00")),  "Volga", 500, "RUB", "photo", "italian")));
         };
 
     }
@@ -76,9 +80,9 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase5(RoutesRepository repository) {
         return args -> {
-            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",
+            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new PointDeparture(1L, true, 3L, "Tver'"),
                     new ArrayList<>(){{add(new Waypoints(1L,
-                            (new PointPlace(3L,  "Tver'", "Russia" )),
+                             (new PointPlace(3L,  "Tver'", "Russia" )),
                                     new ResidenceTime(1L, "11/11/21", "14/11/21"),
                                         new AmountSpent(1L, 50000, "RUB")));
 
@@ -89,7 +93,7 @@ public class LoadDatabase {
 
 
 
-            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",
+            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",  new PointDeparture(1L, true, 4L, "Kazan'"),
                     new ArrayList<>(){{add(new Waypoints(2L,
                             new PointPlace(4L, "Kazan'", "Russia"),
                                     new ResidenceTime(1L, "20/11/20", "25/11/20"),
