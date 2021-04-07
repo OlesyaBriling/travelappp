@@ -1,7 +1,9 @@
 package com.server.travelapp.routes;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RoutesCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {

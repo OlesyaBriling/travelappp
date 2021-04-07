@@ -13,15 +13,15 @@ import com.server.travelapp.restaurants.address.AddressRestaurants;
 import com.server.travelapp.routes.Routes;
 import com.server.travelapp.routes.RoutesRepository;
 import com.server.travelapp.routes.waypoints.Waypoints;
+import com.server.travelapp.routes.waypoints.amountSpent.AmountSpent;
 import com.server.travelapp.routes.waypoints.pointPlace.PointPlace;
-import com.server.travelapp.routes.waypoints.pointPlace.PointPlaceRepository;
+import com.server.travelapp.routes.waypoints.residenceTime.ResidenceTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.Id;
 import java.util.ArrayList;
 
 
@@ -76,16 +76,35 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase5(RoutesRepository repository) {
         return args -> {
-            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new ArrayList<Waypoints>(){{add(new Waypoints(1L, new PointPlace(1L, "Tver", "Russia"),"123234")); add(new Waypoints(3L,new PointPlace(3L, "Moscow", "Russia") ,"5325"));}},  0)));
-            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21", new ArrayList<Waypoints>(){{add(new Waypoints(2L, new PointPlace(4L, "Moscow", "Russia"), "123234"));  add(new Waypoints(4L, new PointPlace(2L, "Saint-Pt.", "Russia"),"5325"));}}  ,0)));
+            log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",
+                    new ArrayList<>(){{add(new Waypoints(1L,
+                            (new PointPlace(3L,  "Tver'", "Russia" )),
+                                    new ResidenceTime(1L, "11/11/21", "14/11/21"),
+                                        new AmountSpent(1L, 50000, "RUB")));
+
+            add(new Waypoints(3L,
+                    new PointPlace(1L, "Novgorod", "Russia"),
+                            new ResidenceTime(1L, "11/11/21", "14/11/21"),
+                                    new AmountSpent(2L, 30000, "RUB")));}},  0)));
+
+
+            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",
+                    new ArrayList<>(){{add(new Waypoints(2L,
+                            new PointPlace(4L, "Kazan'", "Russia"),
+                                    new ResidenceTime(1L, "20/11/20", "25/11/20"),
+                                             new AmountSpent(2L, 30000, "RUB")));
+            add(new Waypoints(4L,
+                    new PointPlace(2L, "Saint-Pt.", "Russia"),
+                            new ResidenceTime(1L, "11/11/21", "14/11/21"),
+                                    new AmountSpent(2L, 30000, "RUB")));}}  ,0)));
         };
     }
 
-    //    @Bean
-//    CommandLineRunner initDataBase6(PointPlaceRepository repository) {
+//        @Bean
+//    CommandLineRunner initDataBase6(WaypointsRepository repository) {
 //        return args -> {
-//            log.info("Preloading" + repository.save(new PointPlace(1L, "Tver", "Russia")));
-//            log.info("Preloading" + repository.save(new PointPlace(3L, "Moscow", "Russia")));
+//            log.info("Preloading" + repository.save(new Waypoints(1L, new PointPlace(1L, "Tver", "Russia"), "Russia")));
+//            log.info("Preloading" + repository.save(new Waypoints(3L, new PointPlace(1L, "Moscow", "Russia"), "Russia")));
 //        };
 //    }
 
