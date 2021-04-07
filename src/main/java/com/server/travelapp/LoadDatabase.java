@@ -82,10 +82,11 @@ public class LoadDatabase {
                                     new ResidenceTime(1L, "11/11/21", "14/11/21"),
                                         new AmountSpent(1L, 50000, "RUB")));
 
-            add(new Waypoints(3L,
+                        add(new Waypoints(3L,
                     new PointPlace(1L, "Novgorod", "Russia"),
                             new ResidenceTime(1L, "11/11/21", "14/11/21"),
                                     new AmountSpent(2L, 30000, "RUB")));}},  0)));
+
 
 
             log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",
