@@ -31,22 +31,22 @@ public class Routes {
 
     private String ending_date;
 
-    @OneToOne( orphanRemoval = true)
-    @JoinColumn(name = "id", referencedColumnName = "routes_id")
+    @OneToOne( cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private PointDeparture pointDeparture;
 
-    @OneToOne( orphanRemoval = true)
-    @JoinColumn(name = "id", referencedColumnName = "routes_id")
+    @OneToOne( cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Budget budget;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "routes_id")
     private List<Waypoints> waypoints;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "routes_id")
     private List<Movements> movements;
-//
+
 //    private Comments comments;
 
     private Integer likes;

@@ -93,7 +93,7 @@ public class LoadDatabase {
                   new PointPlace(1L, "Novgorod", "Russia"),
                             new ResidenceTime(1L, "11/11/21", "14/11/21"),
                                    new AmountSpent(2L, 30000, "RUB")));}},
-                  new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
+                 new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
                     0)));
 
 
@@ -108,7 +108,7 @@ public class LoadDatabase {
                    new PointPlace(4L, "Saint-Pt.", "Russia"),
                             new ResidenceTime(4L, "11/11/21", "14/11/21"),
                                    new AmountSpent(4L, 30000, "RUB")));}},
-               new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
+              new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
                                    0)));
         };
     }
