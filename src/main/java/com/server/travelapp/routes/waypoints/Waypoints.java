@@ -1,6 +1,7 @@
 package com.server.travelapp.routes.waypoints;
 
 
+import com.server.travelapp.routes.Routes;
 import com.server.travelapp.routes.waypoints.amountSpent.AmountSpent;
 import com.server.travelapp.routes.waypoints.pointPlace.PointPlace;
 import com.server.travelapp.routes.waypoints.residenceTime.ResidenceTime;
@@ -24,9 +25,7 @@ public class Waypoints {
     @Column
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "routes_id" )
-//    private Routes routes;
+//
 
 
    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,4 +1,12 @@
 package com.server.travelapp.routes.movements;
 
-public class MovementsCommandLineRunner {
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MovementsCommandLineRunner implements CommandLineRunner {
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
 }

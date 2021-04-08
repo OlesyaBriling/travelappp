@@ -1,4 +1,6 @@
 package com.server.travelapp.routes.movements;
 
-public interface MovementsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MovementsRepository extends JpaRepository<Movements, Long> {
 }

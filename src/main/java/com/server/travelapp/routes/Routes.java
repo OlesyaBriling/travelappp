@@ -1,5 +1,7 @@
 package com.server.travelapp.routes;
 
+import com.server.travelapp.routes.budget.Budget;
+import com.server.travelapp.routes.movements.Movements;
 import com.server.travelapp.routes.pointDeparture.PointDeparture;
 import com.server.travelapp.routes.waypoints.Waypoints;
 import lombok.AllArgsConstructor;
@@ -29,18 +31,21 @@ public class Routes {
 
     private String ending_date;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @OneToOne( orphanRemoval = true)
+    @JoinColumn(name = "id", referencedColumnName = "routes_id")
     private PointDeparture pointDeparture;
-//
-//    private Budget budget;
 
-    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "routes_id")
+    @OneToOne( orphanRemoval = true)
+    @JoinColumn(name = "id", referencedColumnName = "routes_id")
+    private Budget budget;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
     private List<Waypoints> waypoints;
 
-
-//    private Movements movements;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private List<Movements> movements;
 //
 //    private Comments comments;
 

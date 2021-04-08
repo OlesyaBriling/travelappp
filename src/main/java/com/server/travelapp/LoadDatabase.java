@@ -15,6 +15,8 @@ import com.server.travelapp.restaurants.workingTime.weekdays.WeekdaysWorkingTime
 import com.server.travelapp.restaurants.workingTime.weekends.WeekendsWorkingTime;
 import com.server.travelapp.routes.Routes;
 import com.server.travelapp.routes.RoutesRepository;
+import com.server.travelapp.routes.budget.Budget;
+import com.server.travelapp.routes.movements.Movements;
 import com.server.travelapp.routes.pointDeparture.PointDeparture;
 import com.server.travelapp.routes.waypoints.Waypoints;
 import com.server.travelapp.routes.waypoints.amountSpent.AmountSpent;
@@ -76,34 +78,41 @@ public class LoadDatabase {
 //            log.info("Preloading" + repository.save(new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3)));
 //        };
 //    }
-
+//
     @Bean
     CommandLineRunner initDatabase5(RoutesRepository repository) {
         return args -> {
             log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new PointDeparture(1L, true, 3L, "Tver'"),
+                    new Budget(2L, 100000, "RUB"),
                     new ArrayList<>(){{add(new Waypoints(1L,
-                             (new PointPlace(3L,  "Tver'", "Russia" )),
+                             new PointPlace(3L,  "Tver'", "Russia" ),
                                     new ResidenceTime(1L, "11/11/21", "14/11/21"),
-                                        new AmountSpent(1L, 50000, "RUB")));
+                                      new AmountSpent(1L, 50000, "RUB")));
 
                         add(new Waypoints(3L,
-                    new PointPlace(1L, "Novgorod", "Russia"),
+                  new PointPlace(1L, "Novgorod", "Russia"),
                             new ResidenceTime(1L, "11/11/21", "14/11/21"),
-                                    new AmountSpent(2L, 30000, "RUB")));}},  0)));
+                                   new AmountSpent(2L, 30000, "RUB")));}},
+                  new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
+                    0)));
 
 
 
-            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",  new PointDeparture(1L, true, 4L, "Kazan'"),
+            log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",  new PointDeparture(2L, true, 4L, "Kazan'"),
+                    new Budget(2L, 100000, "RUB"),
                     new ArrayList<>(){{add(new Waypoints(2L,
-                            new PointPlace(4L, "Kazan'", "Russia"),
-                                    new ResidenceTime(1L, "20/11/20", "25/11/20"),
-                                             new AmountSpent(2L, 30000, "RUB")));
+                          new PointPlace(2L, "Kazan'", "Russia"),
+                                    new ResidenceTime(2L, "20/11/20", "25/11/20"),
+                                         new AmountSpent(2L, 30000, "RUB")));
             add(new Waypoints(4L,
-                    new PointPlace(2L, "Saint-Pt.", "Russia"),
-                            new ResidenceTime(1L, "11/11/21", "14/11/21"),
-                                    new AmountSpent(2L, 30000, "RUB")));}}  ,0)));
+                   new PointPlace(4L, "Saint-Pt.", "Russia"),
+                            new ResidenceTime(4L, "11/11/21", "14/11/21"),
+                                   new AmountSpent(4L, 30000, "RUB")));}},
+               new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
+                                   0)));
         };
     }
+
 
 //        @Bean
 //    CommandLineRunner initDataBase6(WaypointsRepository repository) {

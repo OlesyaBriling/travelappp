@@ -1,5 +1,4 @@
-package com.server.travelapp.routes.pointDeparture;
-
+package com.server.travelapp.routes.budget;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,22 +9,18 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Builder
-public class PointDeparture {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Budget {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private boolean point;
+    private Integer totalAmount;
 
-    @Column
-    private Long code;
+    private String currency;
 
-    @Column
-    private String name;
 }
