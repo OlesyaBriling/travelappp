@@ -29,12 +29,12 @@ public class Waypoints {
 
 
    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-   @JoinColumn(name = "id", referencedColumnName = "id")
+   //@JoinColumn(name = "id", referencedColumnName = "id")
    private PointPlace pointPlace;
 
 //
    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+  //  @JoinColumn(name = "id", referencedColumnName = "id")
    private ResidenceTime residenceTime;
 
 //
@@ -45,7 +45,7 @@ public class Waypoints {
 //    private PlacesWayPoint placesWayPoint;
 //
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+ //   @JoinColumn(name = "id", referencedColumnName = "id")
     private AmountSpent amountSpent;
 
 }

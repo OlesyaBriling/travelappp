@@ -19,11 +19,7 @@ public class WeekendsWorkingTimeHotels {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-
     private String weekends_startwork;
-
-
     private String weekends_endwork;
 
 }

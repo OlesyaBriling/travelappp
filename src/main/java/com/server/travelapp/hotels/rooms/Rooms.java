@@ -18,10 +18,7 @@ public class Rooms {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
     private Long id;
-
-    @Column
     private Integer priceAmount;
 
 

@@ -22,11 +22,11 @@ public class WorkingTimeHotels {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+ //   @JoinColumn(name = "id", referencedColumnName = "id")
    private WeekdaysWorkingTimeHotels weekdaysWorkingTime;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+  //  @JoinColumn(name = "id", referencedColumnName = "id")
    private WeekendsWorkingTimeHotels weekendsWorkingTime;
 
 }

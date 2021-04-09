@@ -40,7 +40,7 @@ public class Hotels {
     private List<Rooms> rooms;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "hotels_id")
+  //  @JoinColumn(name = "id", referencedColumnName = "id")
     private WorkingTimeHotels workingTimeHotels;
 
 

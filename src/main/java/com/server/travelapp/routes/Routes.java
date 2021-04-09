@@ -32,11 +32,11 @@ public class Routes {
     private String ending_date;
 
     @OneToOne( cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "routes_id")
+  //  @JoinColumn(name = "id", referencedColumnName = "routes_id")
     private PointDeparture pointDeparture;
 
     @OneToOne( cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "routes_id")
+   // @JoinColumn(name = "id", referencedColumnName = "routes_id")
     private Budget budget;
 
     @OneToMany(cascade = CascadeType.ALL)
