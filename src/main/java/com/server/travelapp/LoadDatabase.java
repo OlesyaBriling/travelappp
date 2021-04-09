@@ -5,6 +5,11 @@ import com.server.travelapp.accounts.Accounts;
 import com.server.travelapp.accounts.AccountsRepository;
 import com.server.travelapp.hotels.Hotels;
 import com.server.travelapp.hotels.HotelsRepository;
+import com.server.travelapp.hotels.address.AddressHotels;
+import com.server.travelapp.hotels.rooms.Rooms;
+import com.server.travelapp.hotels.workingTimeHotels.WorkingTimeHotels;
+import com.server.travelapp.hotels.workingTimeHotels.weekdays.WeekdaysWorkingTimeHotels;
+import com.server.travelapp.hotels.workingTimeHotels.weekends.WeekendsWorkingTimeHotels;
 import com.server.travelapp.places.Places;
 import com.server.travelapp.places.PlacesRepository;
 import com.server.travelapp.restaurants.Restaurants;
@@ -68,8 +73,15 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase2(HotelsRepository repository) {
         return args -> {
-            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger")));
-            log.info("Preloading" + repository.save(new Hotels(2L, "Seliger")));
+            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger",
+                    new AddressHotels(1L, "Russia", "Tver", null, null),
+                    new ArrayList<>(){{add(new Rooms(1L, 3000)); add(new Rooms(2L, 4000));}},
+                    new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
+
+              log.info("Preloading" + repository.save(new Hotels(2L, "Seliger",
+                      new AddressHotels(5L, "Russia", "Tver", null, null),
+                      new ArrayList<>(){{add(new Rooms(3L, 3000)); add(new Rooms(4L, 4000));}},
+                      new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
         };
     }
 

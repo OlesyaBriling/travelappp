@@ -1,28 +1,29 @@
-package com.server.travelapp.hotels.rooms;
+package com.server.travelapp.hotels.workingTimeHotels.weekends;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Rooms")
-@Builder
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Rooms {
+@Builder
+public class WeekendsWorkingTimeHotels {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
     private Long id;
 
-    @Column
-    private Integer priceAmount;
 
+    private String weekends_startwork;
+
+
+    private String weekends_endwork;
 
 }

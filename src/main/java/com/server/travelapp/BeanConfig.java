@@ -11,6 +11,7 @@ public class BeanConfig {
     ServletRegistrationBean h2servletRegistration() {
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
         registrationBean.addUrlMappings("/console/*");
+//        registrationBean.addUrlMappings("/restaurants/{id}");
         return registrationBean;
     }
 }
