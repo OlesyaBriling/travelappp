@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="travelapp:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/travelapp_jar</output-path>
+    <output-path>$PROJECT_DIR$/out</output-path>
     <root id="archive" name="travelapp.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
