@@ -22,7 +22,7 @@ public class RestaurantsWaypoint {
 //    @JoinColumn(name = "id", referencedColumnName = "id")
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Customsum customsum;
 
 

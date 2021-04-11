@@ -41,15 +41,15 @@ public class Waypoints {
    private ResidenceTime residenceTime;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "restaurantsWaypoint_id")
+ //   @JoinColumn(name = "restaurantsWaypoint_id")
     private List<RestaurantsWaypoint> restaurantsWaypoint;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "hotelsWaypoint_id")
+ //   @JoinColumn(name = "hotelsWaypoint_id")
     private List<HotelsWaypoint> hotelsWaypoint;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "placesWaypoint_id")
+  //  @JoinColumn(name = "placesWaypoint_id")
     private List<PlacesWaypoint> placesWaypoint;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
