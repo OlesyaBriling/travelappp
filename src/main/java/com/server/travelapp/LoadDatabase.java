@@ -18,6 +18,7 @@ import com.server.travelapp.restaurants.address.AddressRestaurants;
 import com.server.travelapp.restaurants.workingTime.WorkingTime;
 import com.server.travelapp.restaurants.workingTime.weekdays.WeekdaysWorkingTime;
 import com.server.travelapp.restaurants.workingTime.weekends.WeekendsWorkingTime;
+import com.server.travelapp.routes.Comments.Comments;
 import com.server.travelapp.routes.Routes;
 import com.server.travelapp.routes.RoutesRepository;
 import com.server.travelapp.routes.budget.Budget;
@@ -25,10 +26,12 @@ import com.server.travelapp.routes.movements.Movements;
 import com.server.travelapp.routes.pointDeparture.PointDeparture;
 import com.server.travelapp.routes.waypoints.Waypoints;
 import com.server.travelapp.routes.waypoints.amountSpent.AmountSpent;
+import com.server.travelapp.routes.waypoints.hotelsWayPoint.HotelsWaypoint;
+import com.server.travelapp.routes.waypoints.placesWayPoint.PlacesWaypoint;
 import com.server.travelapp.routes.waypoints.pointPlace.PointPlace;
 import com.server.travelapp.routes.waypoints.residenceTime.ResidenceTime;
-import com.server.travelapp.transport.Transport;
-import com.server.travelapp.transport.TransportRepository;
+import com.server.travelapp.routes.waypoints.restaurantsWaypoint.RestaurantsWaypoint;
+import com.server.travelapp.customsum.Customsum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -106,31 +109,45 @@ public class LoadDatabase {
         return args -> {
             log.info("Preloading" + repository.save(new Routes(1L, "Поездка", "01/01/21", "15/01/21",  new PointDeparture(1L, true, 3L, "Tver'"),
                     (new Budget(2L, 100000, "RUB")),
-                    new ArrayList<>(){{add(new Waypoints(1L,
+                    new ArrayList<>(){{add(new Waypoints(1L, false,
                              new PointPlace(3L,  "Tver'", "Russia" ),
                                     new ResidenceTime(1L, "11/11/21", "14/11/21"),
+                                      new ArrayList<>(){{add(new RestaurantsWaypoint( 1L, new Customsum(1L, 3000, "RUB")));}},
+                            new ArrayList<>(){{add(new HotelsWaypoint(2L, new Customsum(2L, 2500, "RUB")));}},
+                            new ArrayList<>(){{add(new PlacesWaypoint(3L, new Customsum(5L, 2500, "RUB")));}},
                                       new AmountSpent(1L, 50000, "RUB")));
 
-                        add(new Waypoints(3L,
+                        add(new Waypoints(3L, false,
                   new PointPlace(1L, "Novgorod", "Russia"),
                             new ResidenceTime(1L, "11/11/21", "14/11/21"),
+                                new ArrayList<>(){{add(new RestaurantsWaypoint( 4L, new Customsum(2L, 3000, "RUB")));}},
+                                new ArrayList<>(){{add(new HotelsWaypoint(5L, new Customsum(4L, 2500, "RUB")));}},
+                                new ArrayList<>(){{add(new PlacesWaypoint(6L, new Customsum(6L, 2500, "RUB")));}},
                                    new AmountSpent(2L, 30000, "RUB")));}},
                  new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
+                    new ArrayList<>(){{add(new Comments(1L, "Olesya", "Comment's text"));}},
                     0)));
 
 
 
             log.info("Preloading" + repository.save(new Routes(2L , "Поездка1", "10/05/21", "20/05/21",  new PointDeparture(2L, true, 4L, "Kazan'"),
                     (new Budget(2L, 100000, "RUB")),
-                    new ArrayList<>(){{add(new Waypoints(2L,
+                    new ArrayList<>(){{add(new Waypoints(2L, false,
                           new PointPlace(2L, "Kazan'", "Russia"),
                                     new ResidenceTime(2L, "20/11/20", "25/11/20"),
+                            new ArrayList<>(){{add(new RestaurantsWaypoint( 6L, new Customsum(7L, 3000, "RUB")));}},
+                            new ArrayList<>(){{add(new HotelsWaypoint(8L, new Customsum(8L, 2500, "RUB")));}},
+                            new ArrayList<>(){{add(new PlacesWaypoint(9L, new Customsum(9L, 2500, "RUB")));}},
                                          new AmountSpent(2L, 30000, "RUB")));
-            add(new Waypoints(4L,
+            add(new Waypoints(4L, false,
                    new PointPlace(4L, "Saint-Pt.", "Russia"),
                             new ResidenceTime(4L, "11/11/21", "14/11/21"),
+                    new ArrayList<>(){{add(new RestaurantsWaypoint( 4L, new Customsum(10L, 3000, "RUB")));}},
+                    new ArrayList<>(){{add(new HotelsWaypoint(5L, new Customsum(11L, 2500, "RUB")));}},
+                    new ArrayList<>(){{add(new PlacesWaypoint(6L, new Customsum(12L, 2500, "RUB")));}},
                                    new AmountSpent(4L, 30000, "RUB")));}},
               new ArrayList<>(){{add(new Movements(1L, 1L, 2L, "12/12/21", "Airplane", 3300)); add(new Movements(2L, 2L, 3L, "20/12/21", "Bus", 300));}},
+                    new ArrayList<>(){{add(new Comments(1L, "Olesya", "Comment's text"));}},
                                    0)));
         };
     }

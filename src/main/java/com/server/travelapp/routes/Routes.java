@@ -1,5 +1,6 @@
 package com.server.travelapp.routes;
 
+import com.server.travelapp.routes.Comments.Comments;
 import com.server.travelapp.routes.budget.Budget;
 import com.server.travelapp.routes.movements.Movements;
 import com.server.travelapp.routes.pointDeparture.PointDeparture;
@@ -47,7 +48,9 @@ public class Routes {
     @JoinColumn(name = "routes_id")
     private List<Movements> movements;
 
-//    private Comments comments;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rotes_id")
+    private List<Comments> comments;
 
     private Integer likes;
 
