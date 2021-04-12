@@ -1,5 +1,8 @@
 package com.server.travelapp.places;
 
+import com.server.travelapp.places.addressPlaces.AddressPlaces;
+import com.server.travelapp.places.pricePlaces.PricePlaces;
+import com.server.travelapp.places.workingTimePlaces.WorkTimePlaces;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,52 +20,20 @@ import javax.persistence.*;
 public class Places {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String placeName;
+    private String Name;
 
-    @Column
-    private String country;
+    @OneToOne(cascade = CascadeType.ALL)
+    private AddressPlaces address;
 
-    @Column
-    private String city;
+    @OneToOne(cascade = CascadeType.ALL)
+    private WorkTimePlaces workTime;
 
-    @Column
-    private String street;
+    @OneToOne(cascade = CascadeType.ALL)
+    private PricePlaces price;
 
-    @Column
-    private Integer building;
+    private String link;
 
-
-    @Column
-    private String weekdays_startwork;
-
-    @Column
-    private String weekdays_endwork;
-
-    @Column
-    private String weekends_startwork;
-
-    @Column
-    private String weekends_endwork;
-
-    @Override
-    public String toString() {
-        return "Places { " +
-                "id=" + id +
-                ", placeName='" + placeName + '\'' +
-                "Address {" +
-                "  country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", building=" + building +
-                "}" +
-                "workingTime {" +
-                "  startwork='" + weekdays_startwork + '\'' +
-                ", endwork='" + weekdays_endwork + '\'' + "}" +
-                '}';
-    }
 }
