@@ -1,5 +1,4 @@
-package com.server.travelapp.transport;
-
+package com.server.travelapp.cities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,23 +12,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Transport")
-public class Transport {
+@Table(name = "Cities")
+public class Cities {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long idFrom;
-
-    private Long idTo;
-
-    private String lang;
-
-    private Integer page;
-
-    private String date;
-
-    private Integer limit;
+    private String nameCity;
 
 }

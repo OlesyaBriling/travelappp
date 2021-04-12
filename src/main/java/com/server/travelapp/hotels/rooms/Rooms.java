@@ -1,12 +1,15 @@
 package com.server.travelapp.hotels.rooms;
 
+import com.server.travelapp.hotels.rooms.beds.Beds;
+import com.server.travelapp.hotels.rooms.comfots.Comforts;
+import com.server.travelapp.hotels.rooms.price.PriceRooms;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Rooms")
@@ -19,7 +22,17 @@ public class Rooms {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer priceAmount;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private PriceRooms price;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rooms_id")
+    private List<Beds> beds;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rooms_id")
+    private List<Comforts> comforts;
 
 
 }

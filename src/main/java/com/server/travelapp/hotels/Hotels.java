@@ -2,6 +2,7 @@ package com.server.travelapp.hotels;
 
 
 import com.server.travelapp.hotels.address.AddressHotels;
+import com.server.travelapp.hotels.comfortsHotel.ComfortsHotel;
 import com.server.travelapp.hotels.rooms.Rooms;
 import com.server.travelapp.hotels.workingTimeHotels.WorkingTimeHotels;
 import com.server.travelapp.restaurants.workingTime.WorkingTime;
@@ -32,6 +33,10 @@ public class Hotels {
     @Column
     private String hotelName;
 
+    @OneToMany(cascade = CascadeType.ALL)
+  //  @JoinColumn(name = "hotels_id")
+    private List<ComfortsHotel> comforts;
+
     @OneToOne(cascade = CascadeType.ALL)
     private AddressHotels addressHotels;
 
@@ -42,6 +47,5 @@ public class Hotels {
     @OneToOne(cascade = CascadeType.ALL)
   //  @JoinColumn(name = "id", referencedColumnName = "id")
     private WorkingTimeHotels workingTimeHotels;
-
 
 }
