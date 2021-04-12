@@ -1,6 +1,7 @@
 package com.server.travelapp.restaurants;
 
 import com.server.travelapp.restaurants.address.AddressRestaurants;
+import com.server.travelapp.restaurants.average_check.AverageCheck;
 import com.server.travelapp.restaurants.workingTime.WorkingTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,21 +24,20 @@ public class Restaurants {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "id", referencedColumnName = "id")
-   private AddressRestaurants addressRestaurant;
+    private String NameRestaurants;
 
     private String type;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+   // @JoinColumn(name = "id", referencedColumnName = "id")
+    private AddressRestaurants addressRestaurant;
+
+    @OneToOne(cascade = CascadeType.ALL)
+   // @JoinColumn(name = "id", referencedColumnName = "id")
     private WorkingTime workingTime;
 
-    private String NameRestaurants;
-
-    private Integer amount;
-
-    private String currency;
+    @OneToOne(cascade = CascadeType.ALL)
+    private AverageCheck averageCheck;
 
     private String photo;
 

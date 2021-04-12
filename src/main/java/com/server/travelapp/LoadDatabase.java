@@ -25,6 +25,7 @@ import com.server.travelapp.places.workingTimePlaces.weekends.WorkTimePlacesWeek
 import com.server.travelapp.restaurants.Restaurants;
 import com.server.travelapp.restaurants.RestaurantsRepository;
 import com.server.travelapp.restaurants.address.AddressRestaurants;
+import com.server.travelapp.restaurants.average_check.AverageCheck;
 import com.server.travelapp.restaurants.workingTime.WorkingTime;
 import com.server.travelapp.restaurants.workingTime.weekdays.WeekdaysWorkingTime;
 import com.server.travelapp.restaurants.workingTime.weekends.WeekendsWorkingTime;
@@ -83,16 +84,15 @@ public class LoadDatabase {
     CommandLineRunner initDatabase1(RestaurantsRepository repository) {
 
         return args -> {
-            log.info("Preloading" + repository.save(new Restaurants(1L ,
+            log.info("Preloading" + repository.save(new Restaurants(1L , "Name_Restaurant", "cafe",
                     new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3),
-                    "cafe",
                     (new WorkingTime(1L, new WeekdaysWorkingTime(1L, "8:00", "21:00"), new WeekendsWorkingTime(1L, "10:00", "00:00"))) ,
-                    "Volga", 500, "RUB", "photo", "italian")));
-            log.info("Preloading" + repository.save(new Restaurants(2L,
-                    new AddressRestaurants(2L,"Russia", "Saint-Pt.", "Moskovskaya", 3) ,
-                     "cafe",
-                    (new WorkingTime(1L, new WeekdaysWorkingTime(1L, "8:00", "21:00"), new WeekendsWorkingTime(1L, "10:00", "00:00"))),
-                    "Volga", 500, "RUB", "photo", "italian")));
+                    new AverageCheck(1L, 500, "RUB"), "photo", "italian")));
+
+            log.info("Preloading" + repository.save(new Restaurants(2L,"Name_Restaurant", "cafe",
+                    new AddressRestaurants(1L ,  "Russia", "Saint-Pt.", "Moskovskaya", 3),
+                    (new WorkingTime(1L, new WeekdaysWorkingTime(1L, "8:00", "21:00"), new WeekendsWorkingTime(1L, "10:00", "00:00"))) ,
+                    new AverageCheck(1L, 500, "RUB"), "photo", "italian")));
         };
 
     }
