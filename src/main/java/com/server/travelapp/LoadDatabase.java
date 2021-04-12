@@ -16,6 +16,12 @@ import com.server.travelapp.hotels.workingTimeHotels.weekdays.WeekdaysWorkingTim
 import com.server.travelapp.hotels.workingTimeHotels.weekends.WeekendsWorkingTimeHotels;
 import com.server.travelapp.places.Places;
 import com.server.travelapp.places.PlacesRepository;
+import com.server.travelapp.places.addressPlaces.AddressPlaces;
+import com.server.travelapp.places.pricePlaces.Amount;
+import com.server.travelapp.places.pricePlaces.PricePlaces;
+import com.server.travelapp.places.workingTimePlaces.WorkTimePlaces;
+import com.server.travelapp.places.workingTimePlaces.weekdays.WorkTimePlacesWeekdays;
+import com.server.travelapp.places.workingTimePlaces.weekends.WorkTimePlacesWeekends;
 import com.server.travelapp.restaurants.Restaurants;
 import com.server.travelapp.restaurants.RestaurantsRepository;
 import com.server.travelapp.restaurants.address.AddressRestaurants;
@@ -57,8 +63,19 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(PlacesRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Places(1L, "Петергоф", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00", "10:00", "23:00" )));
-            log.info("Preloading " + repository.save(new Places(2L, "Мост", "Россия", "Санкт-Петербург", " ", null, "9:00", "21:00", "10:00", "23:00")));
+            log.info("Preloading " + repository.save(new Places(1L, "Петергоф",
+                    new AddressPlaces(1L ,"Россия", "Санкт-Петербург", null , null),
+                    new WorkTimePlaces(1L, new WorkTimePlacesWeekdays(1L, "9:00", "21:00"),
+                            new WorkTimePlacesWeekends(1L, "10:00", "23:00")),
+                    new PricePlaces(1L, new Amount(1L, 200, 500), "RUB"),
+                    "link.com")));
+
+            log.info("Preloading " + repository.save(new Places(2L, "Петергоф",
+                    new AddressPlaces(1L ,"Россия", "Санкт-Петербург", null , null),
+                    new WorkTimePlaces(1L, new WorkTimePlacesWeekdays(1L, "9:00", "21:00"),
+                            new WorkTimePlacesWeekends(1L, "10:00", "23:00")),
+                    new PricePlaces(1L, new Amount(1L, 200, 500), "RUB"),
+                    "link.com")));
         };
     }
 
