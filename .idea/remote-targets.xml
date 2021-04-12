@@ -4,7 +4,7 @@
     <targets>
       <target name="root@176.99.12.170:22" type="ssh/sftp">
         <config>
-          <option name="projectRootOnTarget" value="/root/travelapp.jar" />
+          <option name="projectRootOnTarget" value="/root/" />
           <option name="serverName" value="root@176.99.12.170:22 password" />
         </config>
         <ContributedStateBase type="JavaLanguageRuntime">
