@@ -1,9 +1,11 @@
 package com.server.travelapp.hotels;
 
+import com.server.travelapp.accounts.Accounts;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,18 +15,16 @@ public class HotelsController {
 
     private final HotelsRepository repository;
 
+    private final IHotelService hotelService;
 
-
-    HotelsController(HotelsRepository repository) {
+    HotelsController(HotelsRepository repository, IHotelService hotelService) {
         this.repository = repository;
+        this.hotelService = hotelService;
     }
 
-    @GetMapping("/hotels")
-    public ResponseEntity all() {
-
-        List<Hotels> hotels = repository.findAll();
-
-        return new ResponseEntity(hotels, HttpStatus.OK);
+    @RequestMapping(value = "/hotels")
+    public List<Hotels> findHotels() {
+        return hotelService.findAll();
     }
 
 

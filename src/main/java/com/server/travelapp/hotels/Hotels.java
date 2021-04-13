@@ -41,7 +41,7 @@ public class Hotels {
     private AddressHotels addressHotels;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "hotels_id")
+  //  @JoinColumn(name = "hotels_id")
     private List<Rooms> rooms;
 
     @OneToOne(cascade = CascadeType.ALL)
