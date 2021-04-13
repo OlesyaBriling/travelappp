@@ -10,8 +10,8 @@ import java.util.List;
 @RestController
 public class AccountsContoller {
 
-    @Autowired
-    private IAccountService iAccountService;
+//    @Autowired
+  //  private IAccountService iAccountService;
 
     private final AccountsRepository repository;
 
@@ -20,7 +20,7 @@ public class AccountsContoller {
     AccountsContoller(AccountsRepository repository, AccountService accountService) {
         this.repository = repository;
         this.accountService = accountService;
-        this.iAccountService = iAccountService;
+
     }
 
     @RequestMapping(value = "/accounts")
@@ -37,7 +37,7 @@ public class AccountsContoller {
         return new ResponseEntity(account, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/api/register", consumes = "application/json")
+    @RequestMapping(value = "/api/register")
     public String addAccount(@RequestBody Accounts account) {
         accountService.saveOrUpdate(account);
         return account.getId().toString();
