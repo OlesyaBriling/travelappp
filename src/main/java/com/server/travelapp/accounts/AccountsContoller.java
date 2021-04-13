@@ -1,6 +1,6 @@
 package com.server.travelapp.accounts;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +10,8 @@ import java.util.List;
 @RestController
 public class AccountsContoller {
 
+    @Autowired
+    private IAccountService iAccountService;
 
     private final AccountsRepository repository;
 
@@ -18,18 +20,16 @@ public class AccountsContoller {
     AccountsContoller(AccountsRepository repository, AccountService accountService) {
         this.repository = repository;
         this.accountService = accountService;
+        this.iAccountService = iAccountService;
     }
 
-    @GetMapping("/accounts")
-    public ResponseEntity all() {
-
-        List<Accounts> accounts = repository.findAll();
-
-        return new ResponseEntity(accounts, HttpStatus.OK);
+    @RequestMapping(value = "/accounts")
+    public List<Accounts> findAccounts() {
+        return accountService.findAll();
     }
 
 
-    @GetMapping("/accounts/{id}")
+    @GetMapping(value = "/accounts/{id}")
     public ResponseEntity one(@PathVariable Long id) {
 
         Accounts account = repository.findById(id).orElseThrow(() -> new AccountsNotFoundException(id));

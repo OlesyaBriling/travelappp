@@ -49,9 +49,13 @@ import com.server.travelapp.customsum.Customsum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 
 
@@ -127,6 +131,15 @@ public class LoadDatabase {
                     new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
         };
     }
+
+//    @Bean
+//    public DataSource dataSource(){
+//        EmbeddedDatabaseBuilder embeddedDatabaseBuilder = new EmbeddedDatabaseBuilder();
+//        return embeddedDatabaseBuilder.addScript("classpath:src/main/resources/application.properties/data.sql")
+//                .addScript("classpath:src/main/resources/application.properties/data.sql")
+//                .setType(EmbeddedDatabaseType.H2)
+//                .build();
+//    }
 
     @Bean
     CommandLineRunner initDatabase3(AccountsRepository repository) {
