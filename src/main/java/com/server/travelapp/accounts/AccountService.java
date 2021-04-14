@@ -1,5 +1,6 @@
 package com.server.travelapp.accounts;
 
+import io.micrometer.core.lang.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,8 +14,13 @@ public class AccountService implements IAccountService {
 
     @Autowired
     private JdbcTemplate jtm;
+
+
     AccountsRepository accountsRepository;
 
+    public AccountService(AccountsRepository accountsRepository) {
+        this.accountsRepository = accountsRepository;
+    }
 
     @Override
     public List<Accounts> findAll(){
@@ -35,4 +41,5 @@ public class AccountService implements IAccountService {
     public void delete(Long id) {
         accountsRepository.deleteById(id);
     }
+
 }
