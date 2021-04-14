@@ -1,5 +1,6 @@
 package com.server.travelapp.hotels;
 
+import com.server.travelapp.hotels.rooms.Rooms;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import java.util.List;
 public class HotelsController {
 
     private final HotelsRepository repository;
+
 
 
 

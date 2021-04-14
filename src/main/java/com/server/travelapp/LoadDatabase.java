@@ -101,36 +101,36 @@ public class LoadDatabase {
 
     }
 
-    @Bean
-    CommandLineRunner initDatabase2(HotelsRepository repository) {
-        return args -> {
-            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger",
-                    new ArrayList<>(){{add(new ComfortsHotel(1L, "wi-fi"));}},
-                    new AddressHotels(1L, "Russia", "Tver", null, null),
-                    new ArrayList<>(){{ add(new Rooms(1L,
-                                    new PriceRooms(1L, 300, "RUB"),
-                                    new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
-                                    new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));
-                            add(new Rooms(2L,
-                                            new PriceRooms(1L, 300, "RUB"),
-                                            new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
-                                            new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));}},
-                    new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
-
-               log.info("Preloading" + repository.save(new Hotels(2L, "Seliger",
-                    new ArrayList<>(){{add(new ComfortsHotel(1L, "wi-fi"));}},
-                    new AddressHotels(1L, "Russia", "Tver", null, null),
-                    new ArrayList<>(){{   add(new Rooms(2L,
-                            new PriceRooms(1L, 300, "RUB"),
-                            new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
-                            new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));
-                        add(new Rooms(2L,
-                                new PriceRooms(1L, 300, "RUB"),
-                                new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
-                                new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));}},
-                    new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
-        };
-    }
+//    @Bean
+//    CommandLineRunner initDatabase2(HotelsRepository repository) {
+//        return args -> {
+//            log.info("Preloading" + repository.save(new Hotels(1L, "Seliger",
+//                    new ArrayList<>(){{add(new ComfortsHotel(1L, "wi-fi"));}},
+//                    new AddressHotels(1L, "Russia", "Tver", null, null),
+//                    new ArrayList<>(){{ add(new Rooms(1L,
+//                                    new PriceRooms(1L, 300, "RUB"),
+//                                    new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
+//                                    new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));
+//                            add(new Rooms(2L,
+//                                            new PriceRooms(1L, 300, "RUB"),
+//                                            new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
+//                                            new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));}},
+//                    new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
+//
+//               log.info("Preloading" + repository.save(new Hotels(2L, "Seliger",
+//                    new ArrayList<>(){{add(new ComfortsHotel(1L, "wi-fi"));}},
+//                    new AddressHotels(1L, "Russia", "Tver", null, null),
+//                    new ArrayList<>(){{   add(new Rooms(2L,
+//                            new PriceRooms(1L, 300, "RUB"),
+//                            new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
+//                            new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));
+//                        add(new Rooms(2L,
+//                                new PriceRooms(1L, 300, "RUB"),
+//                                new ArrayList<>(){{add(new Beds(1L, 2, 3));}},
+//                                new ArrayList<>(){{add(new Comforts(1L, "shower"));}}));}},
+//                    new WorkingTimeHotels(1L, new WeekdaysWorkingTimeHotels(1L, "8:00", "21:00"), new WeekendsWorkingTimeHotels(1L, "10:00", "00:00")))));
+//        };
+//    }
 
 //    @Bean
 //    public DataSource dataSource(){
@@ -141,13 +141,13 @@ public class LoadDatabase {
 //                .build();
 //    }
 
-    @Bean
-    CommandLineRunner initDatabase3(AccountsRepository repository) {
-        return args -> {
-            log.info("Preloading" + repository.save(new Accounts(1L, "olesabrilng@gmail.com", "124536fg", "OlesyaBriling", "09/01/2002", "Tver")));
-            log.info("Preloading" + repository.save(new Accounts(2L, "artem@gmail.com", "896536hu", "Artem01", "23/07/2001", "Tver")));
-        };
-    }
+//    @Bean
+//    CommandLineRunner initDatabase3(AccountsRepository repository) {
+//        return args -> {
+//            log.info("Preloading" + repository.save(new Accounts(1L, "olesabrilng@gmail.com", "124536fg", "OlesyaBriling", "09/01/2002", "Tver")));
+//            log.info("Preloading" + repository.save(new Accounts(2L, "artem@gmail.com", "896536hu", "Artem01", "23/07/2001", "Tver")));
+//        };
+//    }
 
 //    @Bean
 //    CommandLineRunner initDatabase4(AddressRestaurantsRepository repository) {
