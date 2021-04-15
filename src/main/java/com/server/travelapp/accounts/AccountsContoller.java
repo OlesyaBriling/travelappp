@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
 @RestController
 public class AccountsContoller {
 
-//    @Autowired
-  //  private IAccountService iAccountService;
 
     private final AccountsRepository repository;
 
@@ -37,18 +36,33 @@ public class AccountsContoller {
         return new ResponseEntity(account, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/register")
-    public String addAccount(@RequestBody Accounts account) {
-        accountService.saveOrUpdate(account);
-        return account.getId().toString();
+//    @RequestMapping(value = "/api/register", consumes = "application/json")
+//    public Long addAccount(@RequestBody Accounts account) {
+//        accountService.saveOrUpdate(account);
+//        return account.getId();
+//    }
+
+//    @RequestMapping(value = "/api/register", consumes = "application/json")
+//    public ResponseEntity save(@PathVariable Long id ) {
+//    Accounts account = repository.save()
+//         return new ResponseEntity(account, HttpStatus.OK);
+//    }
+
+//    @RequestMapping(value = "/api/register", consumes = "application/json")
+//    public ResponseEntity update(@PathVariable Long id) {
+//        Accounts account = repository.update(id);
+//        return new ResponseEntity(account, HttpStatus.OK);
+//    }
+
+//    @DeleteMapping("/account/{id}")
+//    public void deleteAccount(@PathVariable("id") Long id) {
+//        Accounts account = repository.deleteById(accou;
+//        System.out.println("Вы удалили аккаунт " + accountService.getAccountById(id));
+//
+//
+//        }
     }
 
-    @DeleteMapping("/account/{id}")
-    public void deleteAccount(@PathVariable Long id) {
-        accountService.delete(id);
-        System.out.println("Вы удалили аккаунт " + accountService.getAccountById(id));
-    }
 
 
 
-}
