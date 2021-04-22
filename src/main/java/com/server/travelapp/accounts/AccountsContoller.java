@@ -36,6 +36,12 @@ public class AccountsContoller {
         return new ResponseEntity(account, HttpStatus.OK);
     }
 
+    @PostMapping(
+            value = "/createPerson", consumes = "application/json", produces = "application/json")
+    public Accounts createPerson(@RequestBody Accounts account) {
+        return accountService.saveUpdatePerson(account);
+    }
+
 //    @RequestMapping(value = "/api/register", consumes = "application/json")
 //    public Long addAccount(@RequestBody Accounts account) {
 //        accountService.saveOrUpdate(account);
@@ -54,15 +60,13 @@ public class AccountsContoller {
 //        return new ResponseEntity(account, HttpStatus.OK);
 //    }
 
-//    @DeleteMapping("/account/{id}")
-//    public void deleteAccount(@PathVariable("id") Long id) {
-//        Accounts account = repository.deleteById(accou;
-//        System.out.println("Вы удалили аккаунт " + accountService.getAccountById(id));
-//
-//
-//        }
-    }
+    @DeleteMapping("/account/{id}")
+    public void deleteAccount(@PathVariable("id") Long id) {
+        Accounts account = repository.deleteById();
+        System.out.println("Вы удалили аккаунт " + repository.findById(id));
 
+    }
+}
 
 
 

@@ -10,36 +10,46 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AccountService implements IAccountService {
+public class AccountService  {
 
     @Autowired
     private JdbcTemplate jtm;
 
 
+
     AccountsRepository accountsRepository;
 
-    public AccountService(AccountsRepository accountsRepository) {
+    public AccountService(AccountsRepository accountsRepository ) {
         this.accountsRepository = accountsRepository;
+
     }
 
-    @Override
+  //  @Override
     public List<Accounts> findAll(){
        String sql = "SELECT * FROM Accounts";
        return jtm.query(sql, new BeanPropertyRowMapper<>(Accounts.class));
    }
 
+ //  @Override
+  public Accounts saveUpdatePerson(Accounts account){
+     return accountsRepository.save(account);
+  }
+//
+//
+//   }
 
 
-    public Accounts getAccountById(Long id) {
-        return accountsRepository.findById(id).get();
-    }
-
-    public void saveOrUpdate(Accounts account) {
-        accountsRepository.save(account);
-    }
-
-    public void delete(Long id) {
-        accountsRepository.deleteById(id);
-    }
+//
+//    public Accounts getAccountById(Long id) {
+//        return accountsRepository.findById(id).get();
+//    }
+//
+//  //  public saveUpdatePerson(Accounts account) {
+//        accountsRepository.save(account);
+//    }
+//
+//    public void delete(Long id) {
+//        accountsRepository.deleteById(id);
+//    }
 
 }
